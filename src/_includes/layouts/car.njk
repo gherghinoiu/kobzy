@@ -1,0 +1,145 @@
+---
+layout: layouts/base.njk
+---
+{%- set c = car if car else this -%}
+<article class="car-detail">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a> <span>/</span>
+      <a href="/#stock">Cars</a> <span>/</span>
+      <span>{{ year }} {{ make }} {{ model }}</span>
+    </nav>
+
+    <div class="car-detail-grid">
+      {# ---------------- Gallery ---------------- #}
+      <div class="car-gallery">
+        <div class="gallery-main">
+          {% if sold %}<span class="badge badge-sold badge-lg">Sold</span>{% endif %}
+          <img id="galleryMain"
+               src="/assets/cars/{{ slug }}/{{ images[0] }}"
+               alt="{{ year }} {{ make }} {{ model }} — main photo"
+               width="900" height="600" />
+        </div>
+        {% if images.length > 1 %}
+        <div class="gallery-thumbs" role="list">
+          {% for img in images %}
+          <button class="gallery-thumb{{ ' is-active' if loop.first }}" data-full="/assets/cars/{{ slug }}/{{ img }}" role="listitem" aria-label="Photo {{ loop.index }}">
+            <img src="/assets/cars/{{ slug }}/{{ img }}" alt="{{ year }} {{ make }} {{ model }} photo {{ loop.index }}" loading="lazy" width="150" height="100" />
+          </button>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+
+      {# ---------------- Summary / CTA ---------------- #}
+      <aside class="car-summary">
+        <p class="car-summary-kicker">{{ trim }}</p>
+        <h1 class="car-summary-title">{{ year }} {{ make }} {{ model }}</h1>
+        <p class="car-summary-price">{{ price | gbp }}</p>
+
+        <ul class="spec-grid">
+          <li><span>Year</span><strong>{{ year }}</strong></li>
+          <li><span>Mileage</span><strong>{{ mileage | miles }}</strong></li>
+          <li><span>Fuel</span><strong>{{ fuel }}</strong></li>
+          <li><span>Gearbox</span><strong>{{ transmission }}</strong></li>
+          <li><span>Engine</span><strong>{{ engine }}</strong></li>
+          <li><span>Body</span><strong>{{ body }}</strong></li>
+          <li><span>Colour</span><strong>{{ colour }}</strong></li>
+          <li><span>Doors</span><strong>{{ doors }}</strong></li>
+          {% if owners %}<li><span>Owners</span><strong>{{ owners }}</strong></li>{% endif %}
+          {% if mot %}<li><span>MOT</span><strong>{{ mot }}</strong></li>{% endif %}
+        </ul>
+
+        {% if not sold %}
+        <div class="car-cta">
+          <a class="btn btn-whatsapp" href="https://wa.me/{{ site.contact.whatsapp }}?text={{ ('Hi Kobzy, I would like to enquire about the ' + year + ' ' + make + ' ' + model + ' (' + (price | gbp) + '). Is it still available?') | urlencode }}" target="_blank" rel="noopener">
+            Enquire on WhatsApp
+          </a>
+          <a class="btn btn-outline" href="tel:{{ site.contact.phoneLink }}">Call {{ site.contact.phoneDisplay }}</a>
+        </div>
+        <p class="car-ref">Ref: {{ slug | upper }}</p>
+        {% else %}
+        <div class="car-cta">
+          <p class="sold-note">This car has been sold. <a href="/#stock">See our available cars →</a></p>
+        </div>
+        {% endif %}
+      </aside>
+    </div>
+
+    {# ---------------- Video ---------------- #}
+    {% if video %}
+    <section class="car-section">
+      <h2>Video walkaround</h2>
+      <div class="video-embed">
+        <iframe src="{{ video | embedUrl }}" title="{{ year }} {{ make }} {{ model }} video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+    {% endif %}
+
+    {# ---------------- Description ---------------- #}
+    <section class="car-section car-description">
+      <h2>About this {{ make }} {{ model }}</h2>
+      <div class="prose">
+        {{ content | safe }}
+      </div>
+    </section>
+
+    {# ---------------- Features ---------------- #}
+    {% if features %}
+    <section class="car-section">
+      <h2>Key features &amp; equipment</h2>
+      <ul class="feature-list">
+        {% for f in features %}<li>{{ f }}</li>{% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
+    {# ---------------- Bottom CTA ---------------- #}
+    {% if not sold %}
+    <section class="car-section cta-band">
+      <div class="cta-band-inner">
+        <div>
+          <h2>Interested in this {{ make }} {{ model }}?</h2>
+          <p>Message us on WhatsApp for more photos, a video call, or to arrange a viewing.</p>
+        </div>
+        <div class="cta-band-actions">
+          <a class="btn btn-whatsapp" href="https://wa.me/{{ site.contact.whatsapp }}?text={{ ('Hi Kobzy, I would like to enquire about the ' + year + ' ' + make + ' ' + model) | urlencode }}" target="_blank" rel="noopener">WhatsApp Us</a>
+          <a class="btn btn-outline-light" href="tel:{{ site.contact.phoneLink }}">Call Now</a>
+        </div>
+      </div>
+    </section>
+    {% endif %}
+  </div>
+</article>
+
+{# ---------------- Structured data: Vehicle + Product/Offer ---------------- #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Car",
+  "name": "{{ year }} {{ make }} {{ model }} {{ trim }}",
+  "brand": { "@type": "Brand", "name": "{{ make }}" },
+  "model": "{{ model }}",
+  "vehicleModelDate": "{{ year }}",
+  "productionDate": "{{ year }}",
+  "mileageFromOdometer": { "@type": "QuantitativeValue", "value": {{ mileage }}, "unitCode": "SMI" },
+  "fuelType": "{{ fuel }}",
+  "vehicleTransmission": "{{ transmission }}",
+  "bodyType": "{{ body }}",
+  "color": "{{ colour }}",
+  "numberOfDoors": {{ doors }},
+  "image": [
+    {% for img in images %}"{{ site.url }}/assets/cars/{{ slug }}/{{ img }}"{{ "," if not loop.last }}{% endfor %}
+  ],
+  "description": "{{ description | default(excerpt) | striptags }}",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "GBP",
+    "price": "{{ price }}",
+    "availability": "{{ 'https://schema.org/SoldOut' if sold else 'https://schema.org/InStock' }}",
+    "itemCondition": "https://schema.org/UsedCondition",
+    "url": "{{ site.url }}{{ page.url }}",
+    "seller": { "@type": "AutoDealer", "name": "{{ site.name }}", "telephone": "{{ site.contact.phoneDisplay }}" }
+  }
+}
+</script>

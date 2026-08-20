@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-label="BMW 320d — rear three-quarter">
+  <rect width="900" height="600" fill="#e7ebf0"/>
+  <rect y="440" width="900" height="160" fill="#d3dae3"/>
+  <g fill="#8a97a8">
+    <path d="M180 410 q50 -100 160 -108 l260 -4 q110 0 140 70 l20 45 -740 0 z"/>
+    <circle cx="300" cy="450" r="56" fill="#5a6675"/><circle cx="300" cy="450" r="26" fill="#c3ccd6"/>
+    <circle cx="640" cy="450" r="56" fill="#5a6675"/><circle cx="640" cy="450" r="26" fill="#c3ccd6"/>
+  </g>
+  <rect x="560" y="330" width="90" height="40" rx="8" fill="#c0392b" opacity="0.7"/>
+  <text x="450" y="555" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#5a6675">Rear · Photo 4</text>
+</svg>

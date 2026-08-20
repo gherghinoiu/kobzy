@@ -1,0 +1,81 @@
+---
+layout: layouts/base.njk
+title: false
+description: "Browse quality used cars at Kobzy. Hand-picked, fully-checked vehicles with honest pricing, full photos and video walkarounds. Nationwide UK delivery available."
+---
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="hero-kicker">Kobzy · Used Cars</p>
+      <h1 class="hero-title">{{ site.tagline }}</h1>
+      <p class="hero-lead">Hand-picked, fully-checked used cars with honest pricing — full photos, video walkarounds, and no pushy sales. {{ site.location.serviceArea }}.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="#stock">Browse our cars</a>
+        <a class="btn btn-outline-light" href="https://wa.me/{{ site.contact.whatsapp }}?text={{ site.contact.whatsappMessage | urlencode }}" target="_blank" rel="noopener">WhatsApp us</a>
+      </div>
+      <ul class="hero-trust">
+        <li>✓ Fully checked</li>
+        <li>✓ HPI clear</li>
+        <li>✓ Finance available</li>
+        <li>✓ Part-ex welcome</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="stock">
+  <div class="container">
+    <div class="section-head">
+      <h2>Our latest cars</h2>
+      <p>{{ collections.availableCars.length }} vehicle{{ 's' if collections.availableCars.length != 1 }} in stock — updated regularly.</p>
+    </div>
+
+    {% if collections.availableCars.length %}
+    <div class="car-grid">
+      {% for car in collections.availableCars %}
+        {% include "partials/car-card.njk" %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <p class="empty-state">No cars in stock right now — please check back soon or message us on WhatsApp to tell us what you're after.</p>
+    {% endif %}
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container why-grid">
+    <div class="why-card">
+      <div class="why-icon">🔍</div>
+      <h3>Every car checked</h3>
+      <p>Each vehicle is inspected, HPI-checked and honestly described. What you see is what you get.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📹</div>
+      <h3>Photos &amp; video</h3>
+      <p>Real photos and video walkarounds on every listing, plus video calls on request — buy with confidence.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💷</div>
+      <h3>Fair, honest pricing</h3>
+      <p>Sensibly priced against the market. Finance and part-exchange available to make it easy.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🚚</div>
+      <h3>UK-wide delivery</h3>
+      <p>Can't make it to us? We can arrange delivery across the UK. Just ask for a quote.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section cta-band cta-band-full">
+  <div class="container cta-band-inner">
+    <div>
+      <h2>Looking for something specific?</h2>
+      <p>Tell us what you're after and your budget — we'll keep an eye out and message you when it lands.</p>
+    </div>
+    <div class="cta-band-actions">
+      <a class="btn btn-whatsapp" href="https://wa.me/{{ site.contact.whatsapp }}?text={{ 'Hi Kobzy, I am looking for a specific car.' | urlencode }}" target="_blank" rel="noopener">WhatsApp Us</a>
+      <a class="btn btn-outline-light" href="tel:{{ site.contact.phoneLink }}">{{ site.contact.phoneDisplay }}</a>
+    </div>
+  </div>
+</section>

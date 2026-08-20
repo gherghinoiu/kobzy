@@ -1,0 +1,41 @@
+---
+layout: layouts/base.njk
+title: Contact Kobzy
+description: "Contact Kobzy about a used car. Message us on WhatsApp or call — we're happy to send more photos, arrange a video call or book a viewing."
+permalink: /contact/
+---
+<section class="page-hero">
+  <div class="container">
+    <h1>Get in touch</h1>
+    <p class="page-hero-sub">Questions about a car? Want more photos or a video? We reply fast.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container contact-grid">
+    <div class="contact-card">
+      <h2>Message or call us</h2>
+      <p>The quickest way to reach us is WhatsApp — send us a message and we'll get straight back to you with photos, a video, or to arrange a viewing.</p>
+
+      <div class="contact-actions">
+        <a class="btn btn-whatsapp" href="https://wa.me/{{ site.contact.whatsapp }}?text={{ site.contact.whatsappMessage | urlencode }}" target="_blank" rel="noopener">WhatsApp {{ site.contact.phoneDisplay }}</a>
+        <a class="btn btn-outline" href="tel:{{ site.contact.phoneLink }}">Call {{ site.contact.phoneDisplay }}</a>
+        {% if site.contact.email %}<a class="btn btn-outline" href="mailto:{{ site.contact.email }}">Email us</a>{% endif %}
+      </div>
+
+      <h3>Opening hours</h3>
+      <ul class="hours-list">
+        {% for h in site.hours %}
+          <li><span>{{ h.days }}</span><strong>{{ h.time }}</strong></li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="contact-card contact-card-alt">
+      <h2>Where we are</h2>
+      <p>{{ site.location.serviceArea }}.</p>
+      <p>Based in <strong>{{ site.location.town }}</strong>, {{ site.location.region }}. Viewings are by appointment — please message us first so we can have the car ready for you.</p>
+      <p class="muted">Prefer a video call? Just ask and we'll walk you around the car live.</p>
+    </div>
+  </div>
+</section>

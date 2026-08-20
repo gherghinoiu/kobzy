@@ -1,0 +1,21 @@
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="{{ site.name }} home">
+      <img src="/assets/img/logo.svg" alt="{{ site.name }}" class="brand-logo" width="132" height="34" />
+    </a>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/#stock">Our Cars</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+      <a class="nav-cta" href="https://wa.me/{{ site.contact.whatsapp }}?text={{ site.contact.whatsappMessage | urlencode }}" target="_blank" rel="noopener">
+        WhatsApp Us
+      </a>
+    </nav>
+  </div>
+</header>

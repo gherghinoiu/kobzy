@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Kobzy — Quality Used Cars">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1b2d"/>
+      <stop offset="1" stop-color="#1c3253"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="588" width="1200" height="10" fill="#e8a33d"/>
+  <!-- monogram -->
+  <rect x="120" y="150" width="150" height="150" rx="36" fill="#ffffff"/>
+  <path d="M170 185 v80" stroke="#0f1b2d" stroke-width="15" stroke-linecap="round"/>
+  <path d="M177 225 L215 185" stroke="#e8a33d" stroke-width="15" stroke-linecap="round"/>
+  <path d="M177 225 L215 265" stroke="#0f1b2d" stroke-width="15" stroke-linecap="round"/>
+  <text x="120" y="420" font-family="'Arial Black', Helvetica, Arial, sans-serif" font-size="110" font-weight="900" fill="#ffffff" letter-spacing="2">KOBZY</text>
+  <text x="122" y="490" font-family="Helvetica, Arial, sans-serif" font-size="42" font-weight="600" fill="#e8a33d">Quality Used Cars You Can Trust</text>
+  <text x="122" y="545" font-family="Helvetica, Arial, sans-serif" font-size="30" fill="#c7d2e0">Nationwide UK delivery · Finance available · Part-ex welcome</text>
+</svg>

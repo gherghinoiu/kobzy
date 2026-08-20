@@ -1,0 +1,50 @@
+{# ---- Resolve the values used across meta tags ---- #}
+{%- set pageTitle = title or site.name -%}
+{%- set fullTitle = (title + " | " + site.name) if title and page.url != "/" else (site.name + " — " + site.tagline) -%}
+{%- set metaDesc = description or site.description -%}
+{%- set canonical = site.url + page.url -%}
+{%- set ogImage = socialImage or (site.url + "/assets/img/og-default.svg") -%}
+
+<title>{{ fullTitle }}</title>
+<meta name="description" content="{{ metaDesc }}" />
+<link rel="canonical" href="{{ canonical }}" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+
+{# ---- Open Graph (Facebook, WhatsApp, LinkedIn previews) ---- #}
+<meta property="og:type" content="{{ ogType or 'website' }}" />
+<meta property="og:site_name" content="{{ site.name }}" />
+<meta property="og:title" content="{{ fullTitle }}" />
+<meta property="og:description" content="{{ metaDesc }}" />
+<meta property="og:url" content="{{ canonical }}" />
+<meta property="og:image" content="{{ ogImage }}" />
+<meta property="og:locale" content="en_GB" />
+
+{# ---- Twitter / X ---- #}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ fullTitle }}" />
+<meta name="twitter:description" content="{{ metaDesc }}" />
+<meta name="twitter:image" content="{{ ogImage }}" />
+
+{# ---- Icons & theme ---- #}
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<meta name="theme-color" content="{{ site.theme.navy }}" />
+
+{# ---- Organisation structured data (site-wide) ---- #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "{{ site.name }}",
+  "description": "{{ site.description }}",
+  "url": "{{ site.url }}",
+  "telephone": "{{ site.contact.phoneDisplay }}",
+  "areaServed": "{{ site.location.region }}",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "{{ site.location.town }}",
+    "addressRegion": "{{ site.location.region }}",
+    "postalCode": "{{ site.location.postcode }}",
+    "addressCountry": "{{ site.location.country }}"
+  }
+}
+</script>

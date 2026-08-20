@@ -1,0 +1,11 @@
+{
+  "layout": "layouts/car.njk",
+  "tags": "car",
+  "ogType": "product",
+  "permalink": "/cars/{{ page.fileSlug }}/",
+  "eleventyComputed": {
+    "slug": "{{ page.fileSlug }}",
+    "title": "{{ year }} {{ make }} {{ model }} {{ trim }}",
+    "socialImage": "{{ site.url }}/assets/cars/{{ page.fileSlug }}/{{ images[0] }}"
+  }
+}

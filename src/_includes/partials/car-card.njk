@@ -1,0 +1,26 @@
+<article class="car-card{{ ' is-sold' if car.data.sold }}">
+  <a class="car-card-media" href="{{ car.url }}">
+    {% set cover = car.data.images[0] %}
+    <img
+      src="/assets/cars/{{ car.data.slug }}/{{ cover }}"
+      alt="{{ car.data.year }} {{ car.data.make }} {{ car.data.model }} for sale"
+      loading="lazy" width="600" height="400" />
+    {% if car.data.sold %}<span class="badge badge-sold">Sold</span>{% endif %}
+    {% if car.data.video and not car.data.sold %}<span class="badge badge-video">▶ Video</span>{% endif %}
+  </a>
+  <div class="car-card-body">
+    <h3 class="car-card-title">
+      <a href="{{ car.url }}">{{ car.data.year }} {{ car.data.make }} {{ car.data.model }}</a>
+    </h3>
+    <p class="car-card-trim">{{ car.data.trim }}</p>
+    <ul class="car-card-specs">
+      <li>{{ car.data.mileage | miles }}</li>
+      <li>{{ car.data.fuel }}</li>
+      <li>{{ car.data.transmission }}</li>
+    </ul>
+    <div class="car-card-foot">
+      <span class="car-card-price">{{ car.data.price | gbp }}</span>
+      <span class="car-card-more">View details →</span>
+    </div>
+  </div>
+</article>

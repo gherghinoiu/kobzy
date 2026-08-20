@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-label="BMW 320d — interior">
+  <rect width="900" height="600" fill="#22262b"/>
+  <rect y="360" width="900" height="240" fill="#2c3138"/>
+  <rect x="120" y="180" width="660" height="150" rx="16" fill="#3a4048"/>
+  <rect x="150" y="210" width="260" height="90" rx="10" fill="#0f1b2d"/>
+  <circle cx="620" cy="255" r="70" fill="#3a4048" stroke="#5a6675" stroke-width="10"/>
+  <text x="450" y="500" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#c3ccd6">Interior · Photo 3</text>
+</svg>

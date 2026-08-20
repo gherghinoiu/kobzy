@@ -1,0 +1,42 @@
+{
+  "name": "Kobzy",
+  "tagline": "Quality Used Cars You Can Trust",
+  "description": "Kobzy offers hand-picked, fully-checked used cars in the UK. Browse our latest stock with full details, photos and videos. Honest pricing, no pressure.",
+  "url": "https://kobzy.co.uk",
+
+  "location": {
+    "town": "SET-YOUR-TOWN",
+    "region": "United Kingdom",
+    "postcode": "",
+    "country": "GB",
+    "serviceArea": "Nationwide delivery available across the UK"
+  },
+
+  "contact": {
+    "phoneDisplay": "+44 7482 776904",
+    "phoneLink": "+447482776904",
+    "whatsapp": "447482776904",
+    "email": "",
+    "whatsappMessage": "Hi Kobzy, I am interested in one of your cars."
+  },
+
+  "hours": [
+    { "days": "Monday – Friday", "time": "9:00am – 6:00pm" },
+    { "days": "Saturday", "time": "9:00am – 5:00pm" },
+    { "days": "Sunday", "time": "By appointment" }
+  ],
+
+  "social": {
+    "facebook": "",
+    "instagram": "",
+    "youtube": ""
+  },
+
+  "theme": {
+    "accent": "#e8a33d",
+    "navy": "#0f1b2d"
+  },
+
+  "author": "Kobzy",
+  "buildYear": "2026"
+}

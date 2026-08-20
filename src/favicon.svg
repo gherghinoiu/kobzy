@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 76" role="img" aria-label="Kobzy">
+  <rect x="2" y="2" width="72" height="72" rx="18" fill="#0f1b2d"/>
+  <path d="M30 22 v32" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M33 38 L52 22" stroke="#e8a33d" stroke-width="7" stroke-linecap="round"/>
+  <path d="M33 38 L52 54" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="58" cy="56" r="4" fill="#e8a33d"/>
+</svg>

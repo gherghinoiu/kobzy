@@ -1,0 +1,14 @@
+{
+  "name": "kobzy-cars",
+  "version": "1.0.0",
+  "description": "Kobzy — quality used cars in the UK. Static website built with Eleventy, hosted on GitHub Pages.",
+  "license": "MIT",
+  "scripts": {
+    "start": "eleventy --serve --port=8123",
+    "build": "eleventy",
+    "clean": "rimraf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}
