@@ -1,15 +1,15 @@
 {
   "name": "Kobzy",
   "tagline": "Quality Used Cars You Can Trust",
-  "description": "Kobzy offers hand-picked, fully-checked used cars in the UK. Browse our latest stock with full details, photos and videos. Honest pricing, no pressure.",
+  "description": "Kobzy offers hand-picked, fully-checked used cars in Northampton and across the UK. Browse our latest stock with full details, photos and videos. Honest pricing, no pressure.",
   "url": "https://kobzy.co.uk",
 
   "location": {
-    "town": "SET-YOUR-TOWN",
-    "region": "United Kingdom",
+    "town": "Northampton",
+    "region": "Northamptonshire",
     "postcode": "",
     "country": "GB",
-    "serviceArea": "Nationwide delivery available across the UK"
+    "serviceArea": "Based in Northampton with nationwide UK delivery available"
   },
 
   "contact": {
