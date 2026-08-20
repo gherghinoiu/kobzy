@@ -51,7 +51,7 @@ mileage: 28000            # numbers only — no commas
 fuel: Petrol
 transmission: Manual
 engine: 1.0L
-body: Hatchback
+bodystyle: Hatchback
 colour: Magnetic Grey
 doors: 5
 owners: 1

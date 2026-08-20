@@ -43,7 +43,7 @@ layout: layouts/base.njk
           <li><span>Fuel</span><strong>{{ fuel }}</strong></li>
           <li><span>Gearbox</span><strong>{{ transmission }}</strong></li>
           <li><span>Engine</span><strong>{{ engine }}</strong></li>
-          <li><span>Body</span><strong>{{ body }}</strong></li>
+          <li><span>Body</span><strong>{{ bodystyle }}</strong></li>
           <li><span>Colour</span><strong>{{ colour }}</strong></li>
           <li><span>Doors</span><strong>{{ doors }}</strong></li>
           {% if owners %}<li><span>Owners</span><strong>{{ owners }}</strong></li>{% endif %}
@@ -125,7 +125,7 @@ layout: layouts/base.njk
   "mileageFromOdometer": { "@type": "QuantitativeValue", "value": {{ mileage }}, "unitCode": "SMI" },
   "fuelType": "{{ fuel }}",
   "vehicleTransmission": "{{ transmission }}",
-  "bodyType": "{{ body }}",
+  "bodyType": "{{ bodystyle }}",
   "color": "{{ colour }}",
   "numberOfDoors": {{ doors }},
   "image": [

@@ -20,7 +20,7 @@ mileage: 165322           # Numbers only, no commas
 fuel: Petrol
 transmission: Automatic
 engine: 3.0L V6 (2996cc)
-body: Saloon
+bodystyle: Saloon
 colour: Silver            # << set the correct colour
 doors: 4
 mot: "July 2027"

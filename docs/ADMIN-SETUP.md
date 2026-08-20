@@ -72,6 +72,19 @@ free, and you already have a Cloudflare account from the domain.
 **Tip:** in his phone browser, use **Share → Add to Home Screen** so `/admin`
 sits on his home screen like an app.
 
+## Editing locally (on your own computer)
+
+You don't need any of the GitHub/OAuth setup to edit on your own machine:
+
+1. Run `npm start` and open **`http://localhost:8123/admin`** in **Chrome or Edge**.
+2. Click **“Work with Local Repository”** and select the project folder (`carSales`).
+3. Edit cars in the same form — changes are written straight to the files on disk,
+   and the live-reloading dev server shows them instantly.
+
+This local mode is enabled by `local_backend: true` in `config.yml`. On the live
+`kobzy.co.uk/admin` site that flag is ignored and the GitHub login is used instead,
+so the same panel works in both places.
+
 ### About videos
 Phone videos are too large to store on the website. He uploads the clip to
 **YouTube** from the YouTube app (set it to *Unlisted* if he doesn't want it on
