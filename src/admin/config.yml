@@ -9,7 +9,7 @@ backend:
   name: github
   repo: gherghinoiu/kobzy          # owner/repo
   branch: main
-  base_url: https://REPLACE-WITH-YOUR-OAUTH-WORKER.workers.dev   # <-- set this
+  base_url: sveltia-cms-auth.athesdany1984.workers.dev   # <-- set this
 
 site_url: https://kobzy.co.uk
 display_url: https://kobzy.co.uk
