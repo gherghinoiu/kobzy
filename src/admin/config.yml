@@ -1,0 +1,70 @@
+# ===========================================================================
+#  Kobzy admin (Sveltia CMS) configuration
+#  ---------------------------------------------------------------------------
+#  ONE thing to fill in: set `base_url` below to your OAuth Worker URL once
+#  it's deployed (see docs/ADMIN-SETUP.md). Everything else is ready.
+# ===========================================================================
+
+backend:
+  name: github
+  repo: gherghinoiu/kobzy          # owner/repo
+  branch: main
+  base_url: https://REPLACE-WITH-YOUR-OAUTH-WORKER.workers.dev   # <-- set this
+
+site_url: https://kobzy.co.uk
+display_url: https://kobzy.co.uk
+logo_url: https://kobzy.co.uk/assets/img/logo.svg
+
+# Where uploaded photos are saved (overridden per-car below so each car gets
+# its own folder). This is just a sensible fallback.
+media_folder: src/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: cars
+    label: Cars
+    label_singular: Car
+    description: "Add a car for sale. Fill in the details, add photos, then press Publish."
+    folder: src/cars
+    create: true
+    delete: true
+    slug: "{{year}}-{{make}}-{{model}}"
+    identifier_field: model
+    summary: "{{year}} {{fields.make}} {{fields.model}} — {{fields.mileage}} miles{{#if fields.sold}} (SOLD){{/if}}"
+    sortable_fields: [date, price, year, mileage]
+    # Each car gets its own photo folder, named after the car:
+    media_folder: "/src/assets/cars/{{slug}}"
+    public_folder: "/assets/cars/{{slug}}"
+    fields:
+      - { label: "Date listed", name: date, widget: datetime, date_format: "YYYY-MM-DD", time_format: false, hint: "Leave as today unless back-dating" }
+      - { label: "Sold?", name: sold, widget: boolean, default: false, hint: "Turn ON once the car is sold — the page stays up but shows a Sold badge" }
+      - { label: "Make", name: make, widget: string, hint: "e.g. Mercedes-Benz" }
+      - { label: "Model", name: model, widget: string, hint: "e.g. C280" }
+      - { label: "Trim / engine line", name: trim, widget: string, required: false, hint: "e.g. 2996cc V6 Petrol Automatic" }
+      - { label: "Year", name: year, widget: number, value_type: int, min: 1980, max: 2030 }
+      - { label: "Price (£)", name: price, widget: number, value_type: int, hint: "Numbers only — no £ sign or commas" }
+      - { label: "Mileage", name: mileage, widget: number, value_type: int, hint: "Numbers only — no commas" }
+      - { label: "Fuel", name: fuel, widget: select, options: ["Petrol", "Diesel", "Hybrid", "Petrol Hybrid", "Plug-in Hybrid", "Electric"] }
+      - { label: "Gearbox", name: transmission, widget: select, options: ["Automatic", "Manual"] }
+      - { label: "Engine size", name: engine, widget: string, required: false, hint: "e.g. 3.0L V6" }
+      - { label: "Body style", name: body, widget: select, options: ["Saloon", "Hatchback", "Estate", "SUV", "Coupe", "Convertible", "MPV", "Pickup", "Van"] }
+      - { label: "Colour", name: colour, widget: string, required: false }
+      - { label: "Doors", name: doors, widget: number, value_type: int, default: 5, required: false }
+      - { label: "Previous owners", name: owners, widget: number, value_type: int, required: false }
+      - { label: "MOT until", name: mot, widget: string, required: false, hint: 'e.g. July 2027' }
+      - { label: "Short summary (for Google & link previews)", name: description, widget: text, required: false, hint: "One or two sentences describing the car" }
+      - label: "Photos"
+        name: images
+        widget: list
+        required: true
+        allow_add: true
+        field: { label: "Photo", name: image, widget: image }
+        hint: "Add photos from your phone. The FIRST photo is the main one — drag to reorder."
+      - { label: "Video link (optional)", name: video, widget: string, required: false, hint: "Upload the clip to YouTube (can be Unlisted), then paste the link here. Leave blank for none." }
+      - label: "Features"
+        name: features
+        widget: list
+        required: false
+        field: { label: "Feature", name: feature, widget: string }
+        hint: "Add each feature on its own line, e.g. 'Sat Nav', 'Heated seats'"
+      - { label: "Full description", name: body, widget: markdown, required: false, hint: "Write the details, just like one of your Facebook posts." }

@@ -1,6 +1,9 @@
 module.exports = function (eleventyConfig) {
   // Copy static assets straight through to the built site
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+  // Admin (Sveltia CMS) — copy as-is, don't run it through the templating engine
+  eleventyConfig.addPassthroughCopy({ "src/admin": "admin" });
+  eleventyConfig.ignores.add("src/admin/**");
   eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
   eleventyConfig.addPassthroughCopy({ "src/robots.txt": "robots.txt" });
   eleventyConfig.addPassthroughCopy({ "src/favicon.svg": "favicon.svg" });

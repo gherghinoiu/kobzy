@@ -32,10 +32,10 @@ description: "Mercedes-Benz C280 3.0 V6 petrol automatic, 165,322 miles. Full se
 # Put your photo files in:  src/assets/cars/mercedes-benz-c280-v6-automatic/
 # then list the filenames below. The FIRST one is the main/cover photo.
 images:
-  - photo-1.svg
-  - photo-2.svg
-  - photo-3.svg
-  - photo-4.svg
+  - /assets/cars/mercedes-benz-c280-v6-automatic/photo-1.svg
+  - /assets/cars/mercedes-benz-c280-v6-automatic/photo-2.svg
+  - /assets/cars/mercedes-benz-c280-v6-automatic/photo-3.svg
+  - /assets/cars/mercedes-benz-c280-v6-automatic/photo-4.svg
 
 # ---- Video (optional) ----
 # Paste a YouTube or Vimeo link between the quotes. Leave "" for none.

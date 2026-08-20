@@ -2,7 +2,7 @@
   <a class="car-card-media" href="{{ car.url }}">
     {% set cover = car.data.images[0] %}
     <img
-      src="/assets/cars/{{ car.data.slug }}/{{ cover }}"
+      src="{{ cover }}"
       alt="{{ car.data.year }} {{ car.data.make }} {{ car.data.model }} for sale"
       loading="lazy" width="600" height="400" />
     {% if car.data.sold %}<span class="badge badge-sold">Sold</span>{% endif %}

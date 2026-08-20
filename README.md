@@ -10,9 +10,15 @@ requires no coding.
 
 ---
 
-## ⭐ How to add a new car (the important bit)
+## ⭐ How to add a new car
 
-Every car is a single text file in the **`src/cars/`** folder. To add a car:
+**The easy way (for the seller — from a phone):** use the built-in admin panel at
+**`kobzy.co.uk/admin`**. Log in with GitHub, tap **Cars → New Car**, fill the form,
+add photos from the camera roll, paste a YouTube link for video, and press
+**Publish**. One-time setup steps are in **[docs/ADMIN-SETUP.md](docs/ADMIN-SETUP.md)**.
+
+**The manual way (for a developer):** every car is also just a single text file
+in the **`src/cars/`** folder — details below.
 
 ### 1. Create the car's photo folder
 Inside `src/assets/cars/`, make a **new folder** named after the car, using
@@ -26,9 +32,9 @@ Put all the car's photos in that folder (`photo-1.jpg`, `photo-2.jpg`, …).
 **Tip:** name the best photo `photo-1.jpg` — it becomes the main/cover image.
 
 ### 2. Copy an existing car file
-In `src/cars/`, copy `2019-bmw-320d-m-sport.md` and rename the copy to match the
-folder, e.g. `2020-ford-fiesta-titanium.md`. **The file name becomes the web
-address:** `kobzy.co.uk/cars/2020-ford-fiesta-titanium/`
+In `src/cars/`, copy `mercedes-benz-c280-v6-automatic.md` and rename the copy to
+match the folder, e.g. `2020-ford-fiesta-titanium.md`. **The file name becomes the
+web address:** `kobzy.co.uk/cars/2020-ford-fiesta-titanium/`
 
 ### 3. Fill in the details
 Open the new file and edit the section at the top between the `---` lines:
@@ -51,10 +57,10 @@ doors: 5
 owners: 1
 mot: "March 2026"
 description: "One-owner 2020 Ford Fiesta Titanium, 28,000 miles..."   # ~150 chars for Google
-images:
-  - photo-1.jpg
-  - photo-2.jpg
-  - photo-3.jpg
+images:                   # full path: /assets/cars/<your-folder>/<file>
+  - /assets/cars/2020-ford-fiesta-titanium/photo-1.jpg
+  - /assets/cars/2020-ford-fiesta-titanium/photo-2.jpg
+  - /assets/cars/2020-ford-fiesta-titanium/photo-3.jpg
 video: ""                 # paste a YouTube link, or leave "" for none
 features:
   - Apple CarPlay

@@ -16,15 +16,15 @@ layout: layouts/base.njk
         <div class="gallery-main">
           {% if sold %}<span class="badge badge-sold badge-lg">Sold</span>{% endif %}
           <img id="galleryMain"
-               src="/assets/cars/{{ slug }}/{{ images[0] }}"
+               src="{{ images[0] }}"
                alt="{{ year }} {{ make }} {{ model }} — main photo"
                width="900" height="600" />
         </div>
         {% if images.length > 1 %}
         <div class="gallery-thumbs" role="list">
           {% for img in images %}
-          <button class="gallery-thumb{{ ' is-active' if loop.first }}" data-full="/assets/cars/{{ slug }}/{{ img }}" role="listitem" aria-label="Photo {{ loop.index }}">
-            <img src="/assets/cars/{{ slug }}/{{ img }}" alt="{{ year }} {{ make }} {{ model }} photo {{ loop.index }}" loading="lazy" width="150" height="100" />
+          <button class="gallery-thumb{{ ' is-active' if loop.first }}" data-full="{{ img }}" role="listitem" aria-label="Photo {{ loop.index }}">
+            <img src="{{ img }}" alt="{{ year }} {{ make }} {{ model }} photo {{ loop.index }}" loading="lazy" width="150" height="100" />
           </button>
           {% endfor %}
         </div>
@@ -129,7 +129,7 @@ layout: layouts/base.njk
   "color": "{{ colour }}",
   "numberOfDoors": {{ doors }},
   "image": [
-    {% for img in images %}"{{ site.url }}/assets/cars/{{ slug }}/{{ img }}"{{ "," if not loop.last }}{% endfor %}
+    {% for img in images %}"{{ site.url }}{{ img }}"{{ "," if not loop.last }}{% endfor %}
   ],
   "description": "{{ description | default(excerpt) | striptags }}",
   "offers": {

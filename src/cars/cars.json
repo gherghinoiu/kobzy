@@ -6,6 +6,6 @@
   "eleventyComputed": {
     "slug": "{{ page.fileSlug }}",
     "title": "{{ year }} {{ make }} {{ model }} {{ trim }}",
-    "socialImage": "{{ site.url }}/assets/cars/{{ page.fileSlug }}/{{ images[0] }}"
+    "socialImage": "{{ site.url }}{{ images[0] }}"
   }
 }
