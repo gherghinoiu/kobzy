@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-label="BMW 320d — side profile">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" role="img" aria-label="Mercedes-Benz C280 — side profile">
   <rect width="900" height="600" fill="#eceef1"/>
   <rect y="440" width="900" height="160" fill="#dbe0e6"/>
   <g fill="#8a97a8">
@@ -7,5 +7,5 @@
     <circle cx="650" cy="450" r="58" fill="#5a6675"/><circle cx="650" cy="450" r="27" fill="#c3ccd6"/>
   </g>
   <path d="M250 320 q25 -50 130 -52 l200 -2 q80 0 110 52 z" fill="#b7c0cc"/>
-  <text x="450" y="555" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#5a6675">2019 BMW 320d M Sport · Photo 2</text>
+  <text x="450" y="555" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="30" font-weight="700" fill="#5a6675">Mercedes-Benz C280 · Photo 2</text>
 </svg>
